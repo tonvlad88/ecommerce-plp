@@ -1,6 +1,9 @@
+"use client";
+import { memo } from "react";
 import { Product } from "@/types/products";
 
-export default function ProductCard({ product }: { product: Product }) {
+function ProductCard({ product }: { product: Product }) {
+  console.log("render PRODUCT CARD");
   return (
     <div
       key={product.id}
@@ -28,3 +31,5 @@ export default function ProductCard({ product }: { product: Product }) {
     </div>
   );
 }
+
+export default memo(ProductCard);
