@@ -2,11 +2,12 @@
 
 import FilterProducts from "@/components/filterProducts";
 import Loading from "@/components/loading";
+import LoadingGrid from "@/components/loadingGrid";
 import ProductCard from "@/components/productCard";
 import SearchBar from "@/components/searchBar";
 import SortProducts from "@/components/sortProduct";
 import { Product } from "@/types/products";
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 
 const SORT_VALUES = {
   ASC: "Price: Low to High",
@@ -23,6 +24,7 @@ export default function ProductsPage() {
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [sortBy, setSortBy] = useState(sortOptions[0]);
   const [debouncedQuery, setDebouncedQuery] = useState("");
+  const [isSearching, setIsSearching] = useState(false);
 
   useEffect(() => {
     async function fetchProducts() {
@@ -53,10 +55,12 @@ export default function ProductsPage() {
   // Fetch products when debouncedQuery changes
   useEffect(() => {
     const fetchProducts = async () => {
+      setIsSearching(true);
       const res = await fetch(`/api/product?q=${debouncedQuery}`);
       const data = await res.json();
       setProducts(data.products);
       setRawProducts(products);
+      setIsSearching(false);
     };
 
     fetchProducts();
@@ -121,11 +125,17 @@ export default function ProductsPage() {
         />
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-        {products.map((product: Product) => (
-          <ProductCard product={product} key={product.id} />
-        ))}
-      </div>
+      <Suspense fallback={<LoadingGrid />}>
+        {isSearching ? (
+          <LoadingGrid />
+        ) : (
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+            {products.map((product: Product) => (
+              <ProductCard product={product} key={product.id} />
+            ))}
+          </div>
+        )}
+      </Suspense>
     </div>
   );
 }
