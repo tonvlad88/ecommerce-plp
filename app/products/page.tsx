@@ -59,7 +59,6 @@ export default function ProductsPage() {
       const res = await fetch(`/api/product?q=${debouncedQuery}`);
       const data = await res.json();
       setProducts(data.products);
-      setRawProducts(products);
       setIsSearching(false);
     };
 
