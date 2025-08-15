@@ -1,7 +1,10 @@
 "use client";
 
+import FilterProducts from "@/components/filterProducts";
 import Loading from "@/components/loading";
 import ProductCard from "@/components/productCard";
+import SearchBar from "@/components/searchBar";
+import SortProducts from "@/components/sortProduct";
 import { Product } from "@/types/products";
 import { useEffect, useState } from "react";
 
@@ -11,13 +14,6 @@ const SORT_VALUES = {
 };
 
 const sortOptions = [SORT_VALUES.ASC, SORT_VALUES.DESC];
-
-function capitalizeFirstLetter(string: string) {
-  if (string.length === 0) {
-    return ""; // Handle empty strings
-  }
-  return string.charAt(0).toUpperCase() + string.slice(1);
-}
 
 export default function ProductsPage() {
   const [loading, setLoading] = useState(true);
@@ -105,53 +101,24 @@ export default function ProductsPage() {
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
         {/* Search */}
-        <div className="flex flex-col">
-          <label htmlFor="search" className="text-sm font-medium mb-1">
-            Search Products
-          </label>
-          <input
-            id="search"
-            type="text"
-            value={debouncedQuery}
-            onChange={(e) => setDebouncedQuery(e.target.value)}
-            placeholder="e.g. mascara"
-            className="border p-2 rounded"
-          />
-        </div>
+        <SearchBar
+          debouncedQuery={debouncedQuery}
+          setDebouncedQuery={(val) => setDebouncedQuery(val)}
+        />
 
         {/* Category */}
-        <div className="flex flex-col">
-          <label htmlFor="category" className="text-sm font-medium mb-1">
-            Filter by Category
-          </label>
-          <select
-            id="category"
-            value={selectedCategory}
-            onChange={(e) => setSelectedCategory(e.target.value)}
-            className="border p-2 rounded"
-          >
-            {categories.map((cat) => (
-              <option key={cat}>{capitalizeFirstLetter(cat)}</option>
-            ))}
-          </select>
-        </div>
+        <FilterProducts
+          selectedCategory={selectedCategory}
+          setSelectedCategory={(cat) => setSelectedCategory(cat)}
+          categories={categories}
+        />
 
         {/* Sort */}
-        <div className="flex flex-col">
-          <label htmlFor="sort" className="text-sm font-medium mb-1">
-            Sort by Price
-          </label>
-          <select
-            id="sort"
-            value={sortBy}
-            onChange={(e) => setSortBy(e.target.value as "asc" | "desc")}
-            className="border p-2 rounded"
-          >
-            {sortOptions.map((option) => (
-              <option key={option}>{option}</option>
-            ))}
-          </select>
-        </div>
+        <SortProducts
+          sortBy={sortBy}
+          setSortBy={(sort) => setSortBy(sort)}
+          sortOptions={sortOptions}
+        />
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
