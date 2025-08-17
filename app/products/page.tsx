@@ -65,32 +65,21 @@ export default function ProductsPage() {
     fetchProducts();
   }, [debouncedQuery]);
 
-  // Sort by price
   useEffect(() => {
-    const sortProducts = () => {
-      const sorted = [...products].sort((a: any, b: any) =>
-        sortBy === SORT_VALUES.ASC ? a.price - b.price : b.price - a.price
+    let filtered = rawProducts;
+
+    if (selectedCategory !== "All") {
+      filtered = filtered.filter(
+        (p) => p.category.toLowerCase() === selectedCategory.toLowerCase()
       );
-      return sorted;
-    };
-    setProducts(sortProducts());
-  }, [sortBy]);
+    }
 
-  // Filter by category
-  useEffect(() => {
-    const filterProductsByCategory = () => {
-      if (selectedCategory.toLowerCase() === "all") {
-        return rawProducts;
-      }
+    filtered = [...filtered].sort((a, b) =>
+      sortBy === SORT_VALUES.ASC ? a.price - b.price : b.price - a.price
+    );
 
-      return rawProducts.filter(
-        (product: Product) =>
-          product.category.toLowerCase() === selectedCategory.toLowerCase()
-      );
-    };
-
-    setProducts(filterProductsByCategory());
-  }, [selectedCategory]);
+    setProducts(filtered);
+  }, [rawProducts, selectedCategory, sortBy]);
 
   if (loading) {
     return <Loading />;
