@@ -5,16 +5,11 @@ import Loading from "@/components/loading";
 import LoadingGrid from "@/components/loadingGrid";
 import ProductCard from "@/components/productCard";
 import SearchBar from "@/components/searchBar";
-import SortProducts from "@/components/sortProduct";
 import { Product } from "@/types/products";
 import { Suspense, useEffect, useState } from "react";
 
-const SORT_VALUES = {
-  ASC: "Price: Low to High",
-  DESC: "Price: High to Low",
-};
-
-const sortOptions = [SORT_VALUES.ASC, SORT_VALUES.DESC];
+import { SORT_OPTIONS, SORT_VALUES } from "@/constants/productConstants";
+import SortProducts from "@/components/sortProduct";
 
 export default function ProductsPage() {
   const [loading, setLoading] = useState(true);
@@ -22,7 +17,9 @@ export default function ProductsPage() {
   const [rawProducts, setRawProducts] = useState<Product[]>([]);
   const [categories, setCategories] = useState<string[]>([]);
   const [selectedCategory, setSelectedCategory] = useState("All");
-  const [sortBy, setSortBy] = useState(sortOptions[0]);
+  const [sortBy, setSortBy] = useState<(typeof SORT_OPTIONS)[number]>(
+    SORT_OPTIONS[0]
+  );
   const [query, setQuery] = useState("");
   const [debouncedQuery, setDebouncedQuery] = useState("");
   const [isSearching, setIsSearching] = useState(false);
@@ -35,7 +32,9 @@ export default function ProductsPage() {
 
       // Feed categories options
       const categories = Array.from(
-        new Set(products.map((product: { category: any }) => product.category))
+        new Set(
+          products.map((product: { category: string }) => product.category)
+        )
       );
       setCategories(["All", ...categories]);
       setProducts(products);
@@ -85,8 +84,6 @@ export default function ProductsPage() {
     return <Loading />;
   }
 
-  console.log("render render render --->>>");
-
   return (
     <div className="p-6 max-w-5xl mx-auto">
       <h1 className="text-3xl font-bold mb-6">🛍️ Product Listing</h1>
@@ -108,8 +105,8 @@ export default function ProductsPage() {
         {/* Sort */}
         <SortProducts
           sortBy={sortBy}
-          setSortBy={(sort) => setSortBy(sort)}
-          sortOptions={sortOptions}
+          setSortBy={setSortBy}
+          sortOptions={SORT_OPTIONS}
         />
       </div>
 
