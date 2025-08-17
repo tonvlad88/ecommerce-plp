@@ -23,6 +23,7 @@ export default function ProductsPage() {
   const [categories, setCategories] = useState<string[]>([]);
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [sortBy, setSortBy] = useState(sortOptions[0]);
+  const [query, setQuery] = useState("");
   const [debouncedQuery, setDebouncedQuery] = useState("");
   const [isSearching, setIsSearching] = useState(false);
 
@@ -46,11 +47,10 @@ export default function ProductsPage() {
 
   useEffect(() => {
     const handler = setTimeout(() => {
-      setDebouncedQuery(debouncedQuery);
-    }, 500); // 500ms debounce
-
+      setDebouncedQuery(query);
+    }, 500);
     return () => clearTimeout(handler);
-  }, [debouncedQuery]);
+  }, [query]);
 
   // Fetch products when debouncedQuery changes
   useEffect(() => {
