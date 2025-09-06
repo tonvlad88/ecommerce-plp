@@ -1,4 +1,6 @@
 import BackButton from "@/components/backButton";
+import BuyButton from "@/components/buyButton";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 
 async function fetchProductDetails(id: string) {
@@ -34,11 +36,13 @@ export default async function ProductDetails({
       <BackButton />
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         {/* Image */}
-        <div className="rounded-lg overflow-hidden shadow-md">
-          <img
+        <div className="relative rounded-lg overflow-hidden shadow-md aspect-square">
+          <Image
+            fill={true}
+            objectFit="contain"
             src={product.thumbnail}
             alt={product.title}
-            className="w-full h-auto object-cover"
+            className="transition-transform duration-300 hover:scale-105 h-96 w-96" // Move visual styles here
           />
         </div>
 
@@ -50,6 +54,10 @@ export default async function ProductDetails({
           </p>
           <p className="text-gray-700 mb-6">{product.description}</p>
           <p className="text-2xl font-bold text-blue-700">${product.price}</p>
+        </div>
+
+        <div className="mt-8">
+          <BuyButton priceId="price_1S4PHv2dtCcwsNdzj0WYvygs" quantity={1} />
         </div>
       </div>
     </div>
