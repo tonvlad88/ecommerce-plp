@@ -1,5 +1,6 @@
-import BackButton from "@/components/backButton";
-import BuyButton from "@/components/buyButton";
+import BackButton from "@/components/BackButton";
+import BuyButton from "@/components/BuyButtonShop";
+
 import Image from "next/image";
 import { notFound } from "next/navigation";
 

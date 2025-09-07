@@ -1,15 +1,15 @@
 "use client";
 
-import FilterProducts from "@/components/filterProducts";
-import Loading from "@/components/loading";
-import LoadingGrid from "@/components/loadingGrid";
-import ProductCard from "@/components/productCard";
-import SearchBar from "@/components/searchBar";
 import { Product } from "@/types/products";
 import { Suspense, useEffect, useState } from "react";
 
 import { SORT_OPTIONS, SORT_VALUES } from "@/constants/productConstants";
-import SortProducts from "@/components/sortProduct";
+import FilterProducts from "@/components/FilterProducts";
+import LoadingGrid from "@/components/LoadingGrid";
+import Loading from "@/components/Loading";
+import SearchBar from "@/components/SearchBar";
+import SortProducts from "@/components/SortProduct";
+import ProductCard from "@/components/ProductCard";
 
 export default function ProductsPage() {
   const [loading, setLoading] = useState(true);
