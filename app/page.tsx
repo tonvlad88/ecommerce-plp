@@ -4,8 +4,8 @@ import { doc, getDoc } from "firebase/firestore";
 import { db } from "@/lib/firebase";
 import { motion, AnimatePresence } from "framer-motion";
 import AuthPanel from "@/components/AuthPanel/AuthPanel";
-import GlowButton from "@/components/GlowButton";
-import Loading from "@/components/Loading";
+import GlowButton from "@/components/GlowButton_temp";
+import Loading from "@/components/Loading_temp";
 
 interface HeroContent {
   welcomeText: string;

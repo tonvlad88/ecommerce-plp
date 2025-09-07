@@ -1,6 +1,6 @@
 "use client";
 
-import Loading from "@/components/Loading";
+import Loading from "@/components/Loading_temp";
 import { Product } from "@/types/products";
 import { Suspense, useEffect, useState } from "react";
 
