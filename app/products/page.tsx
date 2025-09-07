@@ -1,14 +1,14 @@
 "use client";
 
-import FilterProducts from "@/components/filterProducts";
-import Loading from "@/components/loading";
-import LoadingGrid from "@/components/loadingGrid";
-import ProductCard from "@/components/productCard";
-import SearchBar from "@/components/searchBar";
+import Loading from "@/components/Loading";
 import { Product } from "@/types/products";
 import { Suspense, useEffect, useState } from "react";
 
 import { SORT_OPTIONS, SORT_VALUES } from "@/constants/productConstants";
+import FilterProducts from "@/components/FilterProducts";
+import LoadingGrid from "@/components/LoadingGrid";
+import ProductCard from "@/components/productCard";
+import SearchBar from "@/components/searchBar";
 import SortProducts from "@/components/sortProduct";
 
 export default function ProductsPage() {

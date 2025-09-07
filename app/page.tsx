@@ -3,9 +3,9 @@ import { useEffect, useState } from "react";
 import { doc, getDoc } from "firebase/firestore";
 import { db } from "@/lib/firebase";
 import { motion, AnimatePresence } from "framer-motion";
-import GlowButton from "@/components/glowButton";
-import Loading from "@/components/loading";
 import AuthPanel from "@/components/AuthPanel/AuthPanel";
+import GlowButton from "@/components/GlowButton";
+import Loading from "@/components/Loading";
 
 interface HeroContent {
   welcomeText: string;
