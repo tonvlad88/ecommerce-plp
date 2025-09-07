@@ -63,9 +63,12 @@ export default function Home() {
                   <span className="block text-2xl md:text-3xl">
                     {hero.welcomeText}
                   </span>
-                  <span className="block text-3xl sm:text-4xl md:text-5xl lg:text-6xl my-10">
+                  <span className="block text-3xl sm:text-4xl md:text-5xl lg:text-6xl my-10 text-primary">
                     {hero.title}
                   </span>
+                  {/* <span style={{ color: "rgb(var(--color-text-primary))" }}>
+                    Test
+                  </span> */}
                 </h1>
                 <p className="text-lg md:text-xl font-light opacity-90">
                   {hero.subtitle}
