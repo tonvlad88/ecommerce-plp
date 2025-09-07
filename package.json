@@ -6,7 +6,9 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "upload-theme": "node seeder/uploadTheme.js",
+    "upload-dynamic-content": "node seeder/uploadDynamicContent.js"
   },
   "dependencies": {
     "@stripe/stripe-js": "^7.9.0",
