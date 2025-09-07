@@ -1,21 +1,16 @@
-import Link from "next/link";
+import GlowButton from "@/components/glowButton";
 
 export default function Home() {
   return (
-    <div className="flex items-center justify-center h-screen bg-gradient-to-br from-indigo-500 to-purple-600 text-white">
-      <div className="text-center space-y-6">
-        <h1 className="text-5xl font-extrabold drop-shadow-lg">
+    <div className="h-screen brand-gradient text-white flex items-center justify-center">
+      <div className="text-center space-y-8 px-4 animate-fade-in">
+        <h1 className="text-5xl md:text-6xl font-extrabold drop-shadow-xl">
           👋 Welcome to ECommerce PLP
         </h1>
-        <p className="text-lg font-light">
+        <p className="text-lg md:text-xl font-light max-w-2xl mx-auto opacity-90">
           Discover amazing products tailored just for you.
         </p>
-        <Link
-          href="/products"
-          className="inline-block px-6 py-3 bg-white text-indigo-600 font-semibold rounded-full shadow hover:bg-indigo-100 transition duration-300"
-        >
-          Go to Products
-        </Link>
+        <GlowButton href="/products">Go to Products</GlowButton>
       </div>
     </div>
   );
