@@ -1,16 +1,30 @@
 import GlowButton from "@/components/glowButton";
+import AuthPanel from "@/components/AuthPanel/AuthPanel";
 
 export default function Home() {
   return (
-    <div className="h-screen brand-gradient text-white flex items-center justify-center">
-      <div className="text-center space-y-8 px-4 animate-fade-in">
-        <h1 className="text-5xl md:text-6xl font-extrabold drop-shadow-xl">
-          👋 Welcome to ECommerce PLP
-        </h1>
-        <p className="text-lg md:text-xl font-light max-w-2xl mx-auto opacity-90">
-          Discover amazing products tailored just for you.
-        </p>
-        <GlowButton href="/products">Go to Products</GlowButton>
+    <div className="min-h-screen grid grid-cols-1 md:grid-cols-2">
+      {/* Left Column — Hero */}
+      <div className="brand-gradient text-white flex items-center justify-center p-8">
+        <div className="text-center space-y-8 animate-fade-in max-w-md">
+          <h1 className="font-extrabold drop-shadow-xl">
+            <span className="block md:inline text-2xl md:text-3xl">
+              👋 Welcome to{" "}
+            </span>
+            <span className="block md:inline text-3xl sm:text-4xl md:text-5xl lg:text-6xl my-4 md:my-0">
+              ECommerce PLP
+            </span>
+          </h1>
+          <p className="text-lg md:text-xl font-light opacity-90">
+            Discover amazing products tailored just for you.
+          </p>
+          <GlowButton href="/products">Browse Products</GlowButton>
+        </div>
+      </div>
+
+      {/* Right Column — Auth Panel */}
+      <div className="flex items-center justify-center p-8 bg-surface overflow-y-auto">
+        <AuthPanel />
       </div>
     </div>
   );
