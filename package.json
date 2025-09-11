@@ -8,7 +8,9 @@
     "start": "next start",
     "lint": "next lint",
     "upload-theme": "node seeder/uploadTheme.js",
-    "upload-dynamic-content": "node seeder/uploadDynamicContent.js"
+    "upload-dynamic-content": "node seeder/uploadDynamicContent.js",
+    "upload-products": "node seeder/uploadProducts.js",
+    "upload-product-categories": "node seeder/uploadProductCategories.js"
   },
   "dependencies": {
     "@stripe/stripe-js": "^7.9.0",
