@@ -6,26 +6,29 @@ import { motion, AnimatePresence } from "framer-motion";
 import AuthPanel from "@/components/AuthPanel/AuthPanel";
 import Loading from "@/components/Loading";
 import GlowButton from "@/components/GlowButton";
+import Image from "next/image";
 
-interface HeroContent {
+interface GetStarted {
   welcomeText: string;
-  title: string;
-  subtitle: string;
-  buttonText: string;
+  appName1: string;
+  appName2: string;
+  appTagline: string;
+  appTagline2: string;
+  buttonTitle: string;
   buttonLink: string;
 }
 
 export default function Home() {
-  const [hero, setHero] = useState<HeroContent | null>(null);
+  const [hero, setHero] = useState<GetStarted | null>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const ref = doc(db, "pages", "landing");
+        const ref = doc(db, "pages", "pages-content");
         const snap = await getDoc(ref);
         if (snap.exists()) {
-          setHero(snap.data().hero);
+          setHero(snap.data().getStarted);
         }
       } catch (err) {
         console.error("Error fetching landing page content:", err);
@@ -59,27 +62,39 @@ export default function Home() {
             {/* Left Column — Hero */}
             <div className="brand-gradient text-white flex items-center justify-center p-8">
               <div className="text-center space-y-8 animate-fade-in max-w-md">
+                {/* App Logo at the top */}
+                <div className="flex justify-center">
+                  <Image
+                    src="/app-logo.png"
+                    alt="App Logo"
+                    width={160}
+                    height={160}
+                    priority
+                    className="object-contain"
+                  />
+                </div>
+
                 <h1 className="font-extrabold drop-shadow-xl">
-                  <span className="block text-2xl md:text-3xl">
+                  {/* <span className="block text-2xl md:text-3xl">
                     {hero.welcomeText}
-                  </span>
-                  <span className="block text-3xl sm:text-4xl md:text-5xl lg:text-6xl my-10 text-primary">
-                    {hero.title}
-                  </span>
-                  {/* <span style={{ color: "rgb(var(--color-text-primary))" }}>
-                    Test
                   </span> */}
+                  <span className="block text-3xl sm:text-4xl md:text-5xl lg:text-6xl my-10 text-primary">
+                    {/* {hero.appName1} {hero.appName2} */}
+                    {hero.appTagline}
+                  </span>
                 </h1>
+
                 <p className="text-lg md:text-xl font-light opacity-90">
-                  {hero.subtitle}
+                  {hero.appTagline2}
                 </p>
+
                 <GlowButton href={hero.buttonLink}>
-                  {hero.buttonText}
+                  {hero.buttonTitle}
                 </GlowButton>
               </div>
             </div>
 
-            {/* Right Column — Auth Panel placeholder */}
+            {/* Right Column — Auth Panel */}
             <div className="flex items-center justify-center p-8 bg-surface overflow-y-auto">
               <AuthPanel />
             </div>
