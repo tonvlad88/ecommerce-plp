@@ -10,6 +10,7 @@ import Loading from "@/components/Loading";
 import SearchBar from "@/components/SearchBar";
 import SortProducts from "@/components/SortProduct";
 import ProductCard from "@/components/ProductCard";
+import Image from "next/image";
 
 export default function ProductsPage() {
   const [loading, setLoading] = useState(true);
@@ -86,7 +87,16 @@ export default function ProductsPage() {
 
   return (
     <div className="p-6 max-w-5xl mx-auto">
-      <h1 className="text-3xl font-bold mb-6">🛍️ Product Listing</h1>
+      <h1 className="flex items-center gap-3 text-3xl font-bold mb-6">
+        <Image
+          src="/app-logo.png" // must be in /public
+          alt="App Logo"
+          width={64}
+          height={64}
+          priority // ensures it's loaded ASAP for LCP
+        />
+        Product Listing
+      </h1>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
         {/* Search */}
