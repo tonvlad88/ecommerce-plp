@@ -1,0 +1,35 @@
+{
+  "name": "default",
+  "colors": {
+    "primary": {
+      "base": "79 70 229",
+      "light": "129 140 248",
+      "dark": "55 48 163"
+    },
+    "secondary": {
+      "base": "147 51 234",
+      "light": "192 132 252",
+      "dark": "126 34 206"
+    },
+    "accent": "6 182 212",
+    "background": "249 250 251",
+    "surface": "255 255 255",
+    "text": {
+      "primary": "17 24 39",
+      "secondary": "75 85 99"
+    },
+    "error": "220 38 38",
+    "success": "22 163 74",
+    "warning": "217 119 6"
+  },
+  "gradient": {
+    "from": "99 102 241",
+    "to": "147 51 234"
+  },
+  "anim": {
+    "fadeInDurationMs": 800,
+    "fadeInEasing": "ease-out",
+    "scaleFrom": 0.95
+  },
+  "updatedAt": 0
+}

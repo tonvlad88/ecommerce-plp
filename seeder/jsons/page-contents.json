@@ -1,0 +1,23 @@
+{
+  "hero": {
+    "welcomeText": "👋 Welcome to",
+    "title": "ECommerce PLP",
+    "subtitle": "Discover amazing products tailored just for you.",
+    "buttonText": "Browse Products",
+    "buttonLink": "/products"
+  },
+  "getStarted": {
+    "appName1": "ECommerce",
+    "appName2": "PLP App",
+    "appTagline": "Reliable Products & Services",
+    "appTagline2": " Discover amazing products and services tailored just for you.",
+    "buttonTitle": "Get Started"
+  },
+  "login": {
+    "title": "Welcome Back",
+    "description": "Login to continue your journey",
+    "usernamePlaceholder": "username@gmail.com",
+    "passwordPlaceholder": "password",
+    "buttonTitle": "Login"
+  }
+}

@@ -23,7 +23,7 @@
 # misc
 .DS_Store
 *.pem
-/seeder
+/seeder/private_key
 
 # debug
 npm-debug.log*
