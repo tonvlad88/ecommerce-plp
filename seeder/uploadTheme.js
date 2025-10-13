@@ -4,7 +4,7 @@ const fs = require("fs");
 const path = require("path");
 
 // Load service account key
-const serviceAccount = require("./firebase-dynamic-ecommerce-private-key.json");
+const serviceAccount = require("./private-key.json");
 
 // Initialize Firebase Admin
 admin.initializeApp({
@@ -14,13 +14,13 @@ admin.initializeApp({
 const db = admin.firestore();
 
 // Load your local JSON
-const dataPath = path.join(__dirname, "theme.json");
+const dataPath = path.join(__dirname, "./jsons/ice-angel-theme.json");
 const landingData = JSON.parse(fs.readFileSync(dataPath, "utf8"));
 
 // Write to Firestore
 async function importData() {
   try {
-    await db.collection("config").doc("theme").set(landingData);
+    await db.collection("ice-angel").doc("themes").set(landingData);
     console.log("✅ Theme imported successfully!");
     process.exit(0);
   } catch (error) {
