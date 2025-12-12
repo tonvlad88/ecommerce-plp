@@ -67,7 +67,7 @@ export default async function ProductDetails({
           HORIZONTAL IFRAME
         </h2>
         <iframe
-          src="http://live.spago.com/shows?primaryCategory=%255B%2522shoes%2522%252C%2522wallets%2522%252C%2522skin_care%2522%252C%2522other%2522%255D&subCategory=%255B%2522heels%2522%252C%2522ballet_flats%2522%252C%2522sneakers%2522%252C%2522espadrilles%2522%252C%2522boots%2522%252C%2522loafers%2522%252C%2522slippers%2522%252C%2522slingback%2522%252C%2522mary_janes%2522%252C%2522large_wallets%2522%252C%2522wristlets%2522%252C%2522cardholders%2522%252C%2522self_tanning%2522%252C%2522cleaners_and_exfoliators%2522%252C%2522hair_removal%2522%252C%2522bath_and_shower%2522%252C%2522lip_care%2522%252C%2522skin_care_tools%2522%255D&status=%255B%2522scheduled%2522%252C%2522live%2522%252C%2522ended%2522%252C%2522cancelled%2522%255D"
+          src="https://live.spago.com/shows?primaryCategory=%255B%2522shoes%2522%252C%2522wallets%2522%252C%2522skin_care%2522%252C%2522other%2522%255D&subCategory=%255B%2522heels%2522%252C%2522ballet_flats%2522%252C%2522sneakers%2522%252C%2522espadrilles%2522%252C%2522boots%2522%252C%2522loafers%2522%252C%2522slippers%2522%252C%2522slingback%2522%252C%2522mary_janes%2522%252C%2522large_wallets%2522%252C%2522wristlets%2522%252C%2522cardholders%2522%252C%2522self_tanning%2522%252C%2522cleaners_and_exfoliators%2522%252C%2522hair_removal%2522%252C%2522bath_and_shower%2522%252C%2522lip_care%2522%252C%2522skin_care_tools%2522%255D&status=%255B%2522scheduled%2522%252C%2522live%2522%252C%2522ended%2522%252C%2522cancelled%2522%255D"
           width="100%"
           height="530"
           title="Widget Preview"
